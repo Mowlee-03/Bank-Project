@@ -141,3 +141,27 @@ while (i<source.length) {
 }
 // console.log("user not found");
 })
+
+
+
+function closefun() {
+  let closeuser = document.querySelector(".form__input--user").value;
+  let closepin = document.querySelector(".form__input--pin").value;
+
+  let accountIndex = source.findIndex(acc => acc.user === closeuser && acc.pin === parseInt(closepin));
+
+  if (accountIndex !== -1) {
+    // Clear the login details section
+    username.value = "";
+    password.value = "";
+    balance.innerHTML = "";
+    window.location.reload();
+    
+    // Hide or reset the main task area if needed
+    task.style.opacity = 0;
+    
+    console.log("Logged out successfully");
+  } else {
+    console.log("Error: User or PIN not found");
+  }
+}
